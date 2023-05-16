@@ -44,7 +44,7 @@ main {
     font-family: 'Inter', sans-serif;
     font-size: .75rem;
     color: #8F8F8F;
-    background: #444059;
+    background-color: #444059;
     border-radius: .5rem;
     border: none;
     outline: none;
@@ -54,4 +54,16 @@ main {
 
 button {
     width: 100%;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    background-color: rgb(40, 169, 241);
+    border-radius: .5rem;
+    padding: .75rem;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgba(40, 169, 241, 0.8);
 }
