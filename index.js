@@ -20,7 +20,6 @@ button.addEventListener("click", function() {
     publishEndorsement()
 })
 
-
 // ⬇️ EVENT HANDLERS ⬇️
 
 function publishEndorsement() {
@@ -30,7 +29,6 @@ function publishEndorsement() {
     }
 }
 
-
 // ⬇️ RENDER THE APP ⬇️
 
 function renderEndorsementsArray(array) {
@@ -38,7 +36,7 @@ function renderEndorsementsArray(array) {
 
     array.forEach(item => {
         itemsToRender += `
-            <div class="endorsement">${item}</div>
+            <div class="endorsement">${item[1]}</div>
         `
     })
 
@@ -50,12 +48,12 @@ function renderEndorsements() {
         if (snapshot.exists()) {
             let endorsementsArray = Object.entries(snapshot.val())
             renderEndorsementsArray(endorsementsArray)
+        } else {
+            endorsementsList.innerHTML = `
+                <div>Send an endorsement to someone to see it here!</div>
+            `
         }
     })
-
-    endorsementsList.innerHTML = `
-        <div class="endorsement">Hi Bob! Your React Router course is so good. The students are going to LOVE IT. I’m so excited for the launch :) 🔥 Per</div>
-    `
 }
 
 renderEndorsements()
