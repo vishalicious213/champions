@@ -22,6 +22,12 @@ button.addEventListener("click", function() {
     publishEndorsement()
 })
 
+endorsementsList.addEventListener("click", function(e) {
+    if (e.target.className === "heart") {
+        console.log(e.target.dataset.id)
+    }
+})
+
 // ⬇️ EVENT HANDLERS ⬇️
 
 function publishEndorsement() {
@@ -55,7 +61,7 @@ function renderEndorsementsArray(array) {
                     <div><b>From: ${item[1].from}</b></div>
                     <div class="liked">
                         <div id="${item[0]}" class="likes">${item[1].likes}</div>
-                        <div class="heart">${item[1].liked ? "❤️" : "🖤"}</div>
+                        <div data-id="${item[0]}" class="heart">${item[1].liked ? "❤️" : "🖤"}</div>
                     </div>
                 </div>
             </div>
