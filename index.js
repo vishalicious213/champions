@@ -34,6 +34,13 @@ function publishEndorsement() {
 // ⬇️ RENDER THE APP ⬇️
 
 function renderEndorsements() {
+    onValue(endorsementsInDB, function(snapshot) {
+        if (snapshot.exists()) {
+            let endorsementsArray = Object.entries(snapshot.val())
+            console.log(endorsementsArray)
+        }
+    })
+
     endorsementsList.innerHTML = `
         <div class="endorsement">Hi Bob! Your React Router course is so good. The students are going to LOVE IT. I’m so excited for the launch :) 🔥 Per</div>
     `
