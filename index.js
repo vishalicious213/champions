@@ -42,6 +42,7 @@ function publishEndorsement() {
 
 function renderEndorsementsArray(array) {
     let itemsToRender = ""
+    array.reverse()
 
     array.forEach(item => {
         itemsToRender += `
