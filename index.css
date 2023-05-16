@@ -50,6 +50,7 @@ main {
     outline: none;
     padding: .5rem .75rem;
     margin-bottom: .5rem;
+    resize: none;
 }
 
 button {
