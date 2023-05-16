@@ -1,3 +1,7 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+
+// app elements
 const button = document.getElementById("button")
 const endorsementInput = document.getElementById("endorsement-input")
 const endorsementsList = document.getElementById("endorsements-list")
