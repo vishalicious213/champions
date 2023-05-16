@@ -45,7 +45,11 @@ function renderEndorsementsArray(array) {
 
     array.forEach(item => {
         itemsToRender += `
-            <div class="endorsement">${item[1]}</div>
+            <div class="endorsement">
+                <div>${item[1].from}</div>
+                <div>${item[1].msg}</div>
+                <div>${item[1].to}</div>
+            </div>
         `
     })
 
@@ -56,6 +60,7 @@ function renderEndorsements() {
     onValue(endorsementsInDB, function(snapshot) {
         if (snapshot.exists()) {
             let endorsementsArray = Object.entries(snapshot.val())
+            console.log(endorsementsArray)
             renderEndorsementsArray(endorsementsArray)
         } else {
             endorsementsList.innerHTML = `

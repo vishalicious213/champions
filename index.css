@@ -88,6 +88,10 @@ h2 {
     color: white;
 }
 
+#endorsements-list {
+    width: 100%;
+}
+
 .endorsement {
     width: 90%;
     background-color: white;
