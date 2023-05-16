@@ -24,7 +24,7 @@ button.addEventListener("click", function() {
 
 endorsementsList.addEventListener("click", function(e) {
     if (e.target.className === "heart") {
-        console.log(e.target.dataset.id)
+        clickHeart(e.target.dataset.id)
     }
 })
 
@@ -44,6 +44,10 @@ function publishEndorsement() {
         fromInput.value = ""
         toInput.value = ""
     }
+}
+
+function clickHeart(id) {
+    console.log(id)
 }
 
 // ⬇️ RENDER THE APP ⬇️
