@@ -37,7 +37,7 @@ main {
     width: 90%;
 }
 
-#endorsement-input {
+#endorsement-input, #names input {
     width: 100%;
     height: 7.5rem;
     box-sizing: border-box;
@@ -72,11 +72,11 @@ button:hover {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin-bottom: .5rem;
 }
 
 #names input {
-    width: 46%;
+    width: 49%;
+    height: 2rem;
     text-align: center;
 }
 
