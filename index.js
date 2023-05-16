@@ -46,9 +46,9 @@ function renderEndorsementsArray(array) {
     array.forEach(item => {
         itemsToRender += `
             <div class="endorsement">
-                <div>${item[1].from}</div>
+                <div><b>From: ${item[1].to}</b></div>
                 <div>${item[1].msg}</div>
-                <div>${item[1].to}</div>
+                <div><b>To: ${item[1].from}</b></div>
             </div>
         `
     })
