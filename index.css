@@ -112,3 +112,11 @@ h2 {
     display: flex;
     justify-content: space-between;
 }
+
+.heart {
+    margin-left: .25rem;
+}
+
+.heart:hover {
+    cursor: pointer;
+}

@@ -29,7 +29,9 @@ function publishEndorsement() {
         let item = {
             "from": fromInput.value,
             "to": toInput.value,
-            "msg": endorsementInput.value
+            "msg": endorsementInput.value,
+            "likes": 0,
+            "liked": false
         }
         push(endorsementsInDB, item)
         endorsementInput.value = ""
@@ -52,8 +54,8 @@ function renderEndorsementsArray(array) {
                 <div class="from-likes">
                     <div><b>From: ${item[1].from}</b></div>
                     <div class="liked">
-                        <div id="${item[0]}" class="likes">#</div>
-                        <div class="heart">❤️🖤</div>
+                        <div id="${item[0]}" class="likes">${item[1].likes}</div>
+                        <div class="heart">${item[1].liked ? "❤️" : "🖤"}</div>
                     </div>
                 </div>
             </div>
