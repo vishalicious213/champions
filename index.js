@@ -5,6 +5,9 @@ import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebas
 const appSettings = {
     databaseURL: "https://champions-4e9b8-default-rtdb.firebaseio.com/"
 }
+const app = initializeApp(appSettings)
+const database = getDatabase(app)
+const endorsementsInDB = ref(database, "endorsements")
 
 // app elements
 const button = document.getElementById("button")
