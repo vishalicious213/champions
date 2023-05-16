@@ -49,9 +49,12 @@ function renderEndorsementsArray(array) {
             <div class="endorsement">
                 <div><b>To: ${item[1].to}</b></div>
                 <div class="msg">${item[1].msg}</div>
-                <div class="likes">
+                <div class="from-likes">
                     <div><b>From: ${item[1].from}</b></div>
-                    <div class="heart">❤️🖤</div>
+                    <div class="liked">
+                        <div id="${item[0]}" class="likes">#</div>
+                        <div class="heart">❤️🖤</div>
+                    </div>
                 </div>
             </div>
         `
