@@ -13,6 +13,8 @@ const endorsementsInDB = ref(database, "endorsements")
 const button = document.getElementById("button")
 const endorsementInput = document.getElementById("endorsement-input")
 const endorsementsList = document.getElementById("endorsements-list")
+const fromInput = document.getElementById("from")
+const toInput = document.getElementById("to")
 
 // ⬇️ EVENT LISTENERS ⬇️
 
@@ -23,9 +25,16 @@ button.addEventListener("click", function() {
 // ⬇️ EVENT HANDLERS ⬇️
 
 function publishEndorsement() {
-    if (endorsementInput.value) {
-        push(endorsementsInDB, endorsementInput.value)
+    if (endorsementInput.value && fromInput.value && toInput.value) {
+        let item = {
+            "from": fromInput.value,
+            "to": toInput.value,
+            "msg": endorsementInput.value
+        }
+        push(endorsementsInDB, item)
         endorsementInput.value = ""
+        fromInput.value = ""
+        toInput.value = ""
     }
 }
 
