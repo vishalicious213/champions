@@ -67,3 +67,11 @@ button:hover {
     cursor: pointer;
     background-color: rgba(40, 169, 241, 0.8);
 }
+
+/* ENDORSEMENTS */
+
+h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.25rem;
+    color: white;
+}
