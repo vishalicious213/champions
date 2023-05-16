@@ -107,3 +107,8 @@ h2 {
 .msg {
     margin: .5rem 0;
 }
+
+.likes {
+    display: flex;
+    justify-content: space-between;
+}
