@@ -4,12 +4,14 @@ const endorsementsList = document.getElementById("endorsements-list")
 
 // ⬇️ EVENT LISTENERS ⬇️
 button.addEventListener("click", function() {
-    console.log("clicked")
+    publishEndorsement()
 })
 
 
 // ⬇️ EVENT HANDLERS ⬇️
-
+function publishEndorsement() {
+    console.log("clicked")
+}
 
 
 // ⬇️ RENDER THE APP ⬇️
