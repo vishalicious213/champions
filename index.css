@@ -102,3 +102,7 @@ h2 {
     padding: .5rem;
     box-sizing: border-box;
 }
+
+.msg {
+    margin: .5rem 0;
+}
