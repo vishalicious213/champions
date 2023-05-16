@@ -49,7 +49,7 @@ main {
     border: none;
     outline: none;
     padding: .5rem .75rem;
-    margin-bottom: .75rem;
+    margin-bottom: .5rem;
 }
 
 button {
@@ -66,6 +66,18 @@ button {
 button:hover {
     cursor: pointer;
     background-color: rgba(40, 169, 241, 0.8);
+}
+
+#names {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+}
+
+#names input {
+    width: 46%;
+    text-align: center;
 }
 
 /* ENDORSEMENTS */
