@@ -24,7 +24,10 @@ button.addEventListener("click", function() {
 // ⬇️ EVENT HANDLERS ⬇️
 
 function publishEndorsement() {
-    console.log("clicked")
+    if (endorsementInput.value) {
+        push(endorsementsInDB, endorsementInput.value)
+        endorsementInput.value = ""
+    }
 }
 
 
