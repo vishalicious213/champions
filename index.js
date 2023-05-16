@@ -33,11 +33,23 @@ function publishEndorsement() {
 
 // ⬇️ RENDER THE APP ⬇️
 
+function renderEndorsementsArray(array) {
+    let itemsToRender = ""
+
+    array.forEach(item => {
+        itemsToRender += `
+            <div class="endorsement">${item}</div>
+        `
+    })
+
+    endorsementsList.innerHTML = itemsToRender
+}
+
 function renderEndorsements() {
     onValue(endorsementsInDB, function(snapshot) {
         if (snapshot.exists()) {
             let endorsementsArray = Object.entries(snapshot.val())
-            console.log(endorsementsArray)
+            renderEndorsementsArray(endorsementsArray)
         }
     })
 
