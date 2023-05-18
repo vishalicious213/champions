@@ -50,14 +50,16 @@ function clickHeart(id) {
     console.log(id)
     const clickedEndorsement = ref(database, `endorsements/${id}`)
 
-    update(clickedEndorsement, { "liked" : true })
-        .then(console.log("heart"))
-        .catch(err => console.log(err))
+    // update(clickedEndorsement, { "liked" : true })
+    //     .then(console.log("heart"))
+    //     .catch(err => console.log(err))
 
-    // onValue(clickedEndorsement, (snapshot) => {
-    //     const itemData = snapshot.val()
-    //     console.log(itemData)
-    // })
+    onValue(clickedEndorsement, (snapshot) => {
+        const itemData = snapshot.val()
+        // console.log(itemData.liked)
+        if (itemData.liked) {console.log("liked / true")}
+        if (!itemData.liked) {console.log("liked / false")}
+    })
 }
 
 // ⬇️ RENDER THE APP ⬇️
