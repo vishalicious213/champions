@@ -2,8 +2,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebas
 import { getDatabase, ref, push, onValue, update, off } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 import { v4 as uuidv4} from 'https://jspm.dev/uuid'
 
-console.log(uuidv4())
-
 // firebase settings
 const appSettings = {
     databaseURL: "https://champions-4e9b8-default-rtdb.firebaseio.com/"
@@ -18,6 +16,16 @@ const endorsementInput = document.getElementById("endorsement-input")
 const endorsementsList = document.getElementById("endorsements-list")
 const fromInput = document.getElementById("from")
 const toInput = document.getElementById("to")
+
+// ⬇️ HELPERS ⬇️
+
+function checkForUUID() {
+    if (localStorage.championsId) {
+        console.log(localStorage.championsId)
+    } else {
+        localStorage.setItem("championsId", uuidv4())
+    }
+}
 
 // ⬇️ EVENT LISTENERS ⬇️
 
@@ -111,4 +119,5 @@ function renderEndorsements() {
     })
 }
 
+checkForUUID()
 renderEndorsements()
