@@ -54,14 +54,18 @@ function clickHeart(id) {
         const itemData = snapshot.val()
 
         off(clickedEndorsement)
-        // console.log(itemData.liked)
+
         if (itemData.liked) {
-            update(clickedEndorsement, { "liked" : false })
-                .then(console.log("heart unliked"))
+            update(clickedEndorsement, { 
+                "liked" : false,
+                "likes" : itemData.likes - 1
+        })
                 .catch(err => console.log(err))
         } else {
-            update(clickedEndorsement, { "liked" : true })
-            .then(console.log("heart liked"))
+            update(clickedEndorsement, { 
+                "liked" : true,
+                "likes" : itemData.likes + 1
+            })
             .catch(err => console.log(err))
         }
     })
