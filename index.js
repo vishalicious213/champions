@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push, onValue, update } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref, push, onValue, update, off } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 // firebase settings
 const appSettings = {
@@ -50,15 +50,20 @@ function clickHeart(id) {
     console.log(id)
     const clickedEndorsement = ref(database, `endorsements/${id}`)
 
-    // update(clickedEndorsement, { "liked" : true })
-    //     .then(console.log("heart"))
-    //     .catch(err => console.log(err))
-
     onValue(clickedEndorsement, (snapshot) => {
         const itemData = snapshot.val()
+
+        off(clickedEndorsement)
         // console.log(itemData.liked)
-        if (itemData.liked) {console.log("liked / true")}
-        if (!itemData.liked) {console.log("liked / false")}
+        if (itemData.liked) {
+            update(clickedEndorsement, { "liked" : false })
+                .then(console.log("heart unliked"))
+                .catch(err => console.log(err))
+        } else {
+            update(clickedEndorsement, { "liked" : true })
+            .then(console.log("heart liked"))
+            .catch(err => console.log(err))
+        }
     })
 }
 
