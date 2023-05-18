@@ -48,6 +48,12 @@ function publishEndorsement() {
 
 function clickHeart(id) {
     console.log(id)
+    const clickedEndorsement = ref(database, `endorsements/${id}`)
+    
+    onValue(clickedEndorsement, (snapshot) => {
+        const itemData = snapshot.val()
+        console.log(itemData)
+    })
 }
 
 // ⬇️ RENDER THE APP ⬇️
