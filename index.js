@@ -47,7 +47,6 @@ function publishEndorsement() {
 }
 
 function clickHeart(id) {
-    console.log(id)
     const clickedEndorsement = ref(database, `endorsements/${id}`)
 
     onValue(clickedEndorsement, (snapshot) => {
@@ -100,7 +99,6 @@ function renderEndorsements() {
     onValue(endorsementsInDB, function(snapshot) {
         if (snapshot.exists()) {
             let endorsementsArray = Object.entries(snapshot.val())
-            console.log(endorsementsArray)
             renderEndorsementsArray(endorsementsArray)
         } else {
             endorsementsList.innerHTML = `
