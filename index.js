@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref, push, onValue, update } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 // firebase settings
 const appSettings = {
@@ -49,11 +49,15 @@ function publishEndorsement() {
 function clickHeart(id) {
     console.log(id)
     const clickedEndorsement = ref(database, `endorsements/${id}`)
-    
-    onValue(clickedEndorsement, (snapshot) => {
-        const itemData = snapshot.val()
-        console.log(itemData)
-    })
+
+    update(clickedEndorsement, { "liked" : true })
+        .then(console.log("heart"))
+        .catch(err => console.log(err))
+
+    // onValue(clickedEndorsement, (snapshot) => {
+    //     const itemData = snapshot.val()
+    //     console.log(itemData)
+    // })
 }
 
 // ⬇️ RENDER THE APP ⬇️
