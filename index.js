@@ -86,8 +86,18 @@ function clickHeart(id) {
         let likedByArr = itemData.likedBy
         console.log("likedByArr", likedByArr)
 
+        off(clickedEndorsement)
+
         if (likedByArr.find(item => item === visitor)) {
             console.log("found it")
+            const indexToRemove = likedByArr.indexOf(visitor)
+            console.log(indexToRemove)
+            const updatedLikedByArr = likedByArr.splice(indexToRemove, 1)
+            console.log("removed", updatedLikedByArr)
+            console.log("updated arr", likedByArr)
+            update(clickedEndorsement, {
+                "likedBy": likedByArr
+            })
         } else {
             console.log("not found")
             likedByArr.push(visitor)
