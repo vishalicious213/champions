@@ -27,6 +27,25 @@ function checkForUUID() {
     }
 }
 
+function removeVisitor(visitorsArray) {
+    console.log('arr', visitorsArray)
+
+    const visitorToRemove = visitorsArray.filter(function(item) {
+        return item === localStorage.getItem("championsId")
+    })[0]
+
+    console.log(visitorToRemove)
+
+    const removalIndex = visitorsArray.indexOf(visitorToRemove)
+
+    console.log(removalIndex)
+
+    const newArr = visitorsArray.splice(removalIndex, 1)
+
+    console.log(newArr)
+    console.log(visitorsArray)
+}
+
 // ⬇️ EVENT LISTENERS ⬇️
 
 button.addEventListener("click", function() {
@@ -48,7 +67,7 @@ function publishEndorsement() {
             "to": toInput.value,
             "msg": endorsementInput.value,
             "likes": 0,
-            "liked": false
+            "likedBy": ["None"]
         }
         push(endorsementsInDB, item)
         endorsementInput.value = ""
@@ -62,22 +81,46 @@ function clickHeart(id) {
 
     onValue(clickedEndorsement, (snapshot) => {
         const itemData = snapshot.val()
+        const visitor = localStorage.getItem("championsId")
+        // console.log(itemData.likedBy)
+        let likedByArr = itemData.likedBy
+        console.log("likedByArr", likedByArr)
 
-        off(clickedEndorsement)
-
-        if (itemData.liked) {
-            update(clickedEndorsement, { 
-                "liked" : false,
-                "likes" : itemData.likes - 1
-        })
-                .catch(err => console.log(err))
+        if (likedByArr.find(item => item === visitor)) {
+            console.log("found it")
         } else {
-            update(clickedEndorsement, { 
-                "liked" : true,
-                "likes" : itemData.likes + 1
+            console.log("not found")
+            likedByArr.push(visitor)
+            console.log("updated arr", likedByArr)
+            update(clickedEndorsement, {
+                "likedBy": likedByArr
             })
-            .catch(err => console.log(err))
+            console.log("updated likedBy:", itemData.likedBy)
         }
+
+        // off(clickedEndorsement)
+
+        // if (itemData.likedBy.find(item => item == visitor)) {
+        //     console.log("remove this one:", visitor)
+        //     // console.log(removeVisitor(itemData.likedBy))
+        //     update(clickedEndorsement, { 
+        //         "likedBy" : removeVisitor(itemData.likedBy),
+        //         "likes" : itemData.likes - 1
+        //     })
+        //         .catch(err => console.log(err))
+        // } else {
+        //     update(clickedEndorsement, { 
+        //         "likedBy" : itemData.likedBy.push(visitor),
+        //         "likes" : itemData.likes + 1
+        //     })
+        //     .catch(err => console.log(err))
+        // }
+
+        // if (itemData.likedBy.find(item => item == localStorage.getItem("championsId"))) {
+        //     console.log("found it")
+        // } else {
+        //     console.log("not found")
+        // }
     })
 }
 
@@ -96,7 +139,7 @@ function renderEndorsementsArray(array) {
                     <div><b>From: ${item[1].from}</b></div>
                     <div class="liked">
                         <div id="${item[0]}" class="likes">${item[1].likes}</div>
-                        <div data-id="${item[0]}" class="heart">${item[1].liked ? "❤️" : "🖤"}</div>
+                        <div data-id="${item[0]}" class="heart">${item[1].likedBy ? "❤️" : "🖤"}</div>
                     </div>
                 </div>
             </div>
