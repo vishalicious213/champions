@@ -27,25 +27,6 @@ function checkForUUID() {
     }
 }
 
-function removeVisitor(visitorsArray) {
-    console.log('arr', visitorsArray)
-
-    const visitorToRemove = visitorsArray.filter(function(item) {
-        return item === localStorage.getItem("championsId")
-    })[0]
-
-    console.log(visitorToRemove)
-
-    const removalIndex = visitorsArray.indexOf(visitorToRemove)
-
-    console.log(removalIndex)
-
-    const newArr = visitorsArray.splice(removalIndex, 1)
-
-    console.log(newArr)
-    console.log(visitorsArray)
-}
-
 // ⬇️ EVENT LISTENERS ⬇️
 
 button.addEventListener("click", function() {
