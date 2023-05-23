@@ -1,6 +1,6 @@
 # We Are The Champions
 
-This is the solo project for the Pro version of Scrimba's "Build A Mobile App With Firebase" course. The goal is to build it from scratch using the design from a Figma file as a reference. It makes use of a Firebase Realtime Database to store information and update in realtime as changes are made.
+This is the solo project for the Pro version of Scrimba's [Build A Mobile App With Firebase](https://scrimba.com/learn/firebase) course. It was also incorporated into the [Frontend Developer's Path](https://scrimba.com/learn/frontend) into the end of Module 3: Making Websites Interactive. The goal is to build it from scratch using the design from a Figma file as a reference. It makes use of a Firebase Realtime Database to store information and update in realtime as changes are made.
 
 I built out the app as presented in the Figma design and then moved on to the stretch goals. The following functionality was added:
 
