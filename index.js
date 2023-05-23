@@ -90,9 +90,18 @@ function clickHeart(id) {
 
 function renderEndorsementsArray(array) {
     let itemsToRender = ""
+    let heartColor = ""
     array.reverse()
 
     array.forEach(item => {
+        const isLiked = item[1].likedBy
+
+        if (isLiked.find(item => item === localStorage.getItem("championsId"))) {
+            heartColor = "❤️"
+        } else {
+            heartColor = "🖤"
+        }
+
         itemsToRender += `
             <div class="endorsement">
                 <div><b>To: ${item[1].to}</b></div>
@@ -101,7 +110,7 @@ function renderEndorsementsArray(array) {
                     <div><b>From: ${item[1].from}</b></div>
                     <div class="liked">
                         <div id="${item[0]}" class="likes">${item[1].likes}</div>
-                        <div data-id="${item[0]}" class="heart">${item[1].likedBy ? "❤️" : "🖤"}</div>
+                        <div data-id="${item[0]}" class="heart">${heartColor}</div>
                     </div>
                 </div>
             </div>
