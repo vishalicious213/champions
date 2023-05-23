@@ -20,9 +20,7 @@ const toInput = document.getElementById("to")
 // ⬇️ HELPERS ⬇️
 
 function checkForUUID() {
-    if (localStorage.championsId) {
-        console.log(localStorage.championsId)
-    } else {
+    if (!localStorage.championsId) {
         localStorage.setItem("championsId", uuidv4())
     }
 }
