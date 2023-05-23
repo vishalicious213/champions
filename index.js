@@ -71,13 +71,15 @@ function clickHeart(id) {
             const indexToRemove = likedByArr.indexOf(visitor)
             likedByArr.splice(indexToRemove, 1)
             update(clickedEndorsement, {
-                "likedBy": likedByArr
+                "likedBy": likedByArr,
+                "likes": itemData.likes - 1
             })
             .catch(err => console.log(err))
         } else {
             likedByArr.push(visitor)
             update(clickedEndorsement, {
-                "likedBy": likedByArr
+                "likedBy": likedByArr,
+                "likes": itemData.likes + 1
             })
             .catch(err => console.log(err))
         }
