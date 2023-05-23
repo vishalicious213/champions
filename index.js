@@ -82,55 +82,24 @@ function clickHeart(id) {
     onValue(clickedEndorsement, (snapshot) => {
         const itemData = snapshot.val()
         const visitor = localStorage.getItem("championsId")
-        // console.log(itemData.likedBy)
         let likedByArr = itemData.likedBy
-        console.log("likedByArr", likedByArr)
 
         off(clickedEndorsement)
 
         if (likedByArr.find(item => item === visitor)) {
-            console.log("found it")
             const indexToRemove = likedByArr.indexOf(visitor)
-            console.log(indexToRemove)
-            const updatedLikedByArr = likedByArr.splice(indexToRemove, 1)
-            console.log("removed", updatedLikedByArr)
-            console.log("updated arr", likedByArr)
+            likedByArr.splice(indexToRemove, 1)
             update(clickedEndorsement, {
                 "likedBy": likedByArr
             })
+            .catch(err => console.log(err))
         } else {
-            console.log("not found")
             likedByArr.push(visitor)
-            console.log("updated arr", likedByArr)
             update(clickedEndorsement, {
                 "likedBy": likedByArr
             })
-            console.log("updated likedBy:", itemData.likedBy)
+            .catch(err => console.log(err))
         }
-
-        // off(clickedEndorsement)
-
-        // if (itemData.likedBy.find(item => item == visitor)) {
-        //     console.log("remove this one:", visitor)
-        //     // console.log(removeVisitor(itemData.likedBy))
-        //     update(clickedEndorsement, { 
-        //         "likedBy" : removeVisitor(itemData.likedBy),
-        //         "likes" : itemData.likes - 1
-        //     })
-        //         .catch(err => console.log(err))
-        // } else {
-        //     update(clickedEndorsement, { 
-        //         "likedBy" : itemData.likedBy.push(visitor),
-        //         "likes" : itemData.likes + 1
-        //     })
-        //     .catch(err => console.log(err))
-        // }
-
-        // if (itemData.likedBy.find(item => item == localStorage.getItem("championsId"))) {
-        //     console.log("found it")
-        // } else {
-        //     console.log("not found")
-        // }
     })
 }
 
