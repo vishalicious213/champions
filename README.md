@@ -17,3 +17,5 @@ My implementation of the "likes" feature differs from what we learned at Scrimba
 This approach lets visitors like/unlike endorsements and tracks them in the cloud using Firebase, so "likes" are not just local to the computer and behave like they would for other cloud-enabled applications.
 
 Deployed at: https://vish213-champions.netlify.app/
+
+![](./img/screenshot.jpg)
