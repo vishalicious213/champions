@@ -52,3 +52,16 @@ Deployed at: https://vish213-champions.netlify.app/
     - .catch()
 - string template literals
 - Object.entries
+
+## Firebase concepts
+
+- initializeApp
+- getDatabase
+- ref
+- push
+- onValue
+- update
+- off
+- snapshot
+    - .exists()
+    - .val()
